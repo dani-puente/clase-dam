@@ -1,5 +1,5 @@
 public class Alumno {
-    
+
     // el nombre completo del alumno
     private String nombre;
     // el numero de matricula
@@ -15,29 +15,27 @@ public class Alumno {
             System.out.println("No has introducido un nombre valido");
         } 
         if (numeroMatriculaAlumno.length() < 4){
-            System.out.println("No has introducido un nombre de matricula valido");
+            System.out.println("No has introducido un numero de matricula valido");
         }
         nombre = nombreCompleto;
         numeroMatricula = numeroMatriculaAlumno;
         edad = edadAlumno;
 
-
     }
-
     /**
      * Devuelve el nombre completo del alumno
      */
     public String getNombre() {
         return nombre;
     }
-    
+
     /**
      * Cambia el nombre del alumno
      */
     public void cambiarnombre(String nuevoNombre) {
         nombre = nuevoNombre;
     }
-    
+
     /**
      * Imprime por pantalla los detalles del alumno
      */
@@ -50,6 +48,24 @@ public class Alumno {
      * en su cuenta de Github en formato de 7 caracateres
      */
     public String getNombreUsuarioGithub() {
-        return nombre.substring(0, 3) + numeroMatricula.substring(0, 4);
+        String nombreIncompleto;
+        String matriculaIncompleta;
+        String valor;
+        if (nombre.length() < 3) {
+            if (numeroMatricula.length() < 4) {
+                nombreIncompleto = nombre;
+                matriculaIncompleta = numeroMatricula;
+                valor = nombreIncompleto + matriculaIncompleta; 
+            } else {
+                nombreIncompleto = nombre;
+                valor = nombreIncompleto + numeroMatricula; 
+            }
+        } else if (numeroMatricula.length() < 4) {
+                matriculaIncompleta = numeroMatricula;
+                valor = nombre + matriculaIncompleta; 
+        } else {
+            valor = nombre.substring(0, 3) + numeroMatricula.substring(0, 4);
+        }
+        return valor;
     }
 }
