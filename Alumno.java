@@ -11,9 +11,17 @@ public class Alumno {
      * Crea un alumno nuevo
      */
     public Alumno(String nombreCompleto, String numeroMatriculaAlumno, int edadAlumno) {
+        if (nombreCompleto.length() < 3){
+            System.out.println("No has introducido un nombre valido");
+        } 
+        if (numeroMatriculaAlumno.length() < 4){
+            System.out.println("No has introducido un nombre de matricula valido");
+        }
         nombre = nombreCompleto;
         numeroMatricula = numeroMatriculaAlumno;
         edad = edadAlumno;
+
+
     }
 
     /**
